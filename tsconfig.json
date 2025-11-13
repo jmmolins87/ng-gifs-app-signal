@@ -3,6 +3,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@environments/*": ["src/environments/*"],
+      "@componentsGifs/*": ["src/app/gifs/components/*"],
+      "@interfacesGifs/*": ["src/app/gifs/interfaces/*"],
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
