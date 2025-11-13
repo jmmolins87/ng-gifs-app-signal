@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
-import { MenuOption } from '@interfacesGifs/menu-option.interface';
+import type { MenuOption } from '@interfacesGifs/menu-option.interface';
 
 @Component({
   selector: 'gifs-side-menu-options',
