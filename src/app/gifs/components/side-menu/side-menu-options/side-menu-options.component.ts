@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import type { MenuOption } from '@interfacesGifs/menu-option.interface';
+import { GifService } from '@servicesGifs/gifs.service';
 
 @Component({
   selector: 'gifs-side-menu-options',
@@ -8,6 +9,8 @@ import type { MenuOption } from '@interfacesGifs/menu-option.interface';
   templateUrl: './side-menu-options.component.html',
 })
 export class SideMenuOptions {
+
+  gifsService = inject(GifService);
 
   menuOptions: MenuOption[] = [
     {
@@ -18,8 +21,8 @@ export class SideMenuOptions {
     },
     {
       icon: 'fa-solid fa-magnifying-glass',
-      label: 'Buscando',
-      subLabel: 'Buscar Gids',
+      label: 'Buscar',
+      subLabel: 'Buscar Gifs',
       route: '/dashboard/search'
     }
   ]

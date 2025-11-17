@@ -3,6 +3,7 @@ import { List } from "@componentsGifs/list/list.component";
 import type { Gif } from '@interfacesGifs/gifs.interface';
 import { GifService } from '@servicesGifs/gifs.service';
 
+
 @Component({
   selector: 'app-search-page',
   imports: [List],
@@ -13,9 +14,14 @@ export default class SearchPage {
   gifsService = inject(GifService);
   gifs = signal<Gif[]>([]);
 
-  onSearch( query: string ){
+  onSearch( input: HTMLInputElement ){
+    const query = input.value.trim();
+    if (!query) return;
+
     this.gifsService.searchGifs(query).subscribe((resp) => {
-      console.log(resp);
-    })
+      this.gifs.set(resp);
+    });
+
+    input.value = '';
   }
 }
